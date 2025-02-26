@@ -14,7 +14,7 @@ export default function Newsletter(){
         </div>
         <div className="mt-8 lg:mt-0 lg:ml-8">
           <form className="sm:flex">
-            <label htmlFor="email-address" className="sr-only">
+            <label htmlFor="email-address" className="sr-only text-white">
               Email address
             </label>
             <input

@@ -1,5 +1,6 @@
 import React from "react";
 import Article from "../Article/Article";
+import { articles } from "../../db";
 
 function Articles() {
   return (
@@ -18,7 +19,20 @@ function Articles() {
           </p>
         </div>
       </div>
-     <Article />;
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {articles.map(article => (
+        <Article img={article.image} title={article.title} desc={article.description} cat={article.category} host={article.hosted_by} key={article.id} />
+      ))}
+      
+      </div>
+
+      <div className="mt-12 text-center">
+        <button className="inline-flex items-center px-8 py-4 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 hover:from-orange-600 hover:via-pink-600 hover:to-purple-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition-all duration-300 transform hover:scale-105 hover:rotate-1">
+          Load More Articles
+        </button>
+      </div>
+    </div>
     </div>
   );
 
