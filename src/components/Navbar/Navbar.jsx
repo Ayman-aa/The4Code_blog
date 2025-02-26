@@ -42,14 +42,13 @@ function Navbar() {
             </div>
 
             {/* Login and Sign Up Buttons */}
-            <button className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition-all duration-300 transform hover:scale-105">
+            <NavLink
+              to="/login"
+              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition-all duration-300 transform hover:scale-105"
+            >
               <LogIn className="h-4 w-4 mr-1" />
-              Login
-            </button>
-            <button className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-all duration-300 transform hover:scale-105">
-              <UserPlus className="h-4 w-4 mr-1" />
-              Sign Up
-            </button>
+              Login / Sign up
+            </NavLink>
           </div>
           <div className="-mr-2 flex items-center sm:hidden">
             <button
@@ -88,14 +87,13 @@ function Navbar() {
 
             {/* Mobile Login and Sign Up Buttons */}
             <div className="flex space-x-2 mt-3">
-              <button className="flex-1 inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">
+              <NavLink
+                to="/login"
+                className="flex-1 inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+              >
                 <LogIn className="h-4 w-4 mr-1" />
-                Login
-              </button>
-              <button className="flex-1 inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
-                <UserPlus className="h-4 w-4 mr-1" />
-                Sign Up
-              </button>
+                Login / Sign up
+              </NavLink>
             </div>
           </div>
         </div>
