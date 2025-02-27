@@ -5,6 +5,7 @@ import App from "./App.jsx";
 import { BrowserRouter, Route, Routes } from "react-router";
 import Posts from "./Posts.jsx";
 import Login from "./Login.jsx";
+import AddPost from "./AddPost.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -13,6 +14,8 @@ createRoot(document.getElementById("root")).render(
         <Route path="/" element={<App />} />
         <Route path="/posts" element={<Posts />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/add-post" element={<AddPost />} />
+        <Route path="/add-post" element={<AddPost />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

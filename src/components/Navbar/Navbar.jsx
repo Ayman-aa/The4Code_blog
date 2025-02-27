@@ -1,9 +1,15 @@
-import { Code, Coffee, LogIn, Menu, Search, Sparkles, Star, UserPlus, X, Zap } from "lucide-react";
-import React from "react";
+import { Code, LogIn, Menu, PlusCircle, Search, Sparkles, X, Zap } from "lucide-react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router";
 
 function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsLoggedIn(!!token);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -42,13 +48,36 @@ function Navbar() {
             </div>
 
             {/* Login and Sign Up Buttons */}
-            <NavLink
-              to="/login"
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition-all duration-300 transform hover:scale-105"
-            >
-              <LogIn className="h-4 w-4 mr-1" />
-              Login / Sign up
-            </NavLink>
+            {isLoggedIn ? (
+              <>
+                <NavLink
+                  to="/add-post"
+                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition-all duration-300 transform hover:scale-105"
+                >
+                  <PlusCircle className="h-4 w-4 mr-1" />
+                  Add Post
+                </NavLink>
+                <button
+                  onClick={() => {
+                    localStorage.removeItem("token");
+                    localStorage.removeItem("user");
+                    window.location.reload();
+                  }}
+                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition-all duration-300 transform hover:scale-105"
+                >
+                  <LogIn className="h-4 w-4 mr-1" />
+                  Logout
+                </button>
+              </>
+            ) : (
+              <NavLink
+                to="/login"
+                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition-all duration-300 transform hover:scale-105"
+              >
+                <LogIn className="h-4 w-4 mr-1" />
+                Login / Sign up
+              </NavLink>
+            )}
           </div>
           <div className="-mr-2 flex items-center sm:hidden">
             <button
@@ -87,13 +116,36 @@ function Navbar() {
 
             {/* Mobile Login and Sign Up Buttons */}
             <div className="flex space-x-2 mt-3">
-              <NavLink
-                to="/login"
-                className="flex-1 inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
-              >
-                <LogIn className="h-4 w-4 mr-1" />
-                Login / Sign up
-              </NavLink>
+              {isLoggedIn ? (
+                <>
+                  <NavLink
+                    to="/add-post"
+                    className="flex-1 inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                  >
+                    <PlusCircle className="h-4 w-4 mr-1" />
+                    Add Post
+                  </NavLink>
+                  <button
+                    onClick={() => {
+                      localStorage.removeItem("token");
+                      localStorage.removeItem("user");
+                      window.location.reload();
+                    }}
+                    className="flex-1 inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                  >
+                    <LogIn className="h-4 w-4 mr-1" />
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <NavLink
+                  to="/login"
+                  className="flex-1 inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                >
+                  <LogIn className="h-4 w-4 mr-1" />
+                  Login / Sign up
+                </NavLink>
+              )}
             </div>
           </div>
         </div>
