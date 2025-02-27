@@ -9,7 +9,7 @@ function Articles() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch("https://the4codeblogbackend.onrender.com//api/posts");
+        const response = await fetch("https://the4codeblogbackend.onrender.com/api/posts");
         const data = await response.json();
         setPosts(data);
         console.log(data);
@@ -37,7 +37,14 @@ function Articles() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {posts.map((article) => (
-            <Article img={article.imageUrl} title={article.title} desc={article.description} cat={article.category} key={article.id} />
+            <Article
+              postId={article.id}
+              img={article.imageUrl}
+              title={article.title}
+              desc={article.description}
+              cat={article.category}
+              key={article.id}
+            />
           ))}
         </div>
 

@@ -1,5 +1,6 @@
 import { ChevronRight } from "lucide-react";
 import React from "react";
+import { NavLink } from "react-router";
 
 function Article(props) {
   return (
@@ -19,9 +20,9 @@ function Article(props) {
           {/* <div className="flex items-center">
                 <span className="text-sm text-gray-500">Hosted by: {props.host}</span>
               </div> */}
-          <a href="#" className="text-orange-600 hover:text-pink-500 flex items-center transition-colors duration-300">
+          <NavLink to={`/post/${props.postId}`} className="text-orange-600 hover:text-pink-500 flex items-center transition-colors duration-300">
             Read more <ChevronRight className="h-4 w-4 ml-1" />
-          </a>
+          </NavLink>
         </div>
       </div>
     </div>

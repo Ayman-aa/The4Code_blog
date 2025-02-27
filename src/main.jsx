@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import Posts from "./Posts.jsx";
 import Login from "./Login.jsx";
 import AddPost from "./AddPost.jsx";
+import PostDetails from "./PostDetails.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -15,7 +16,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/posts" element={<Posts />} />
         <Route path="/login" element={<Login />} />
         <Route path="/add-post" element={<AddPost />} />
-        <Route path="/add-post" element={<AddPost />} />
+        <Route path="/post/:id" element={<PostDetails />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
