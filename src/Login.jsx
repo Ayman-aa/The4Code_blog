@@ -29,7 +29,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = isLogin ? "http://localhost:3000/api/login" : "http://localhost:3000/api/signup";
+    const url = isLogin ? "https://the4codeblogbackend.onrender.com//api/login" : "https://the4codeblogbackend.onrender.com//api/signup";
     const payload = isLogin ? { email, password } : { name, email, password };
 
     try {

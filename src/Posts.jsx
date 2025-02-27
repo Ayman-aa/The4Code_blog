@@ -9,7 +9,7 @@ function Posts() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch("http://localhost:3000/api/posts");
+        const response = await fetch("https://the4codeblogbackend.onrender.com//api/posts");
         const data = await response.json();
         setPosts(data);
         console.log(data);

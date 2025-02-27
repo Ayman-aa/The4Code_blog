@@ -54,7 +54,7 @@ const AddPost = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:3000/api/add-post", {
+      const response = await fetch("https://the4codeblogbackend.onrender.com//api/add-post", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
